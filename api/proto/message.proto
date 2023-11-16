@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package models;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "json_vs_proto/pkg/pb;pb";
+
+message Message {
+  string id = 1;
+  google.protobuf.Timestamp time = 2;
+  string message = 3;
+  string status = 4;
+  repeated Attach attachments = 5;
+  int64 counter = 6;
+}
+
+message Attach {
+  int32 id = 1;
+  string type = 2;
+  string name = 3;
+  bytes data = 4;
+}
